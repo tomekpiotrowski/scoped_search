@@ -84,7 +84,7 @@ module ScopedSearch
     def is_query_valid
       # skip test for null prefix operators if in the process of completing the field name.
       return if(last_token_is(NULL_PREFIX_OPERATORS, 2) && !(query =~ /(\s|\)|,)$/))
-      QueryBuilder.build_query(definition, query)
+      QueryBuilder.build_query(definition, query, @options)
     end
 
     def is_left_hand(node)
